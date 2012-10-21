@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Volumes/Learnosity/Workspaces/tools.chapter31.com",
+                        "file_exclude_patterns":
+                        [
+                                ".buildpath",
+                                ".project",
+                                "tools.sublime-workspace",
+                                "tools.sublime-project"
+                        ],
+                        "folder_exclude_patterns":
+                        [
+                                "WEB-INF",
+                                ".settings"
+                        ]
+		}
+	]
+}

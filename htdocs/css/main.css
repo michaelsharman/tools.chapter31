@@ -1,0 +1,186 @@
+body {
+	font-style: normal;
+	font-weight: 300;
+	font-variant: normal;
+	font-size: 14px;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 18px;
+	color: #5F5C52;
+	background-color: #ffffff;
+}
+
+textarea {
+	font-style: normal;
+	font-weight: 300;
+	font-variant: normal;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #777;
+}
+
+footer {
+	border-top: 1px solid #E2E2E2;
+	text-align: center;
+}
+
+a {
+	color: #5BB75B;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #156c21;
+	text-decoration: underline;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.main {
+	margin-left: 20%;
+	min-width: 650px;
+	min-height: 650px;
+	position: relative;
+	border-left: 1px solid #E2E2E2;
+	z-index: 2;
+}
+
+.top-bar {
+	border-bottom: 1px solid #E2E2E2;
+	min-height: 60px;
+}
+
+.side-bar {
+	width: 20%;
+	min-width: 170px;
+	min-height: 100%;
+	position: fixed;
+	top: 30px;
+	z-index: 1;
+}
+
+.side-bar li {
+	line-height: 30px;
+}
+
+article {
+	padding: 10px 30px;
+	max-width: 940px;
+	clear: both;
+}
+
+.nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav > li > a {
+	display: block;
+	padding-left: 30px;
+	color: #5F5C52;
+}
+
+.nav > li > a:hover {
+	text-decoration: none;
+	background-color: #eeeeee;
+}
+
+.top-bar .nav {
+	position: absolute;
+	right: 0;
+}
+
+.top-bar .nav li {
+	float: right;
+	width: 100px;
+	line-height: 60px;
+}
+
+.top-bar .nav li a {
+	display: block;
+}
+
+.top-bar .nav li a:hover, .top-bar .nav .active {
+	border-bottom: 7px solid #5BB75B;
+}
+
+.side-bar .nav .active {
+	background-color: #f7f8f9;
+	border-right: 7px solid #5BB75B;
+}
+
+.results {
+	display: none;
+	border-top: 1px solid #eee;
+	padding: 15px 0;
+	margin-top: 10px;
+}
+
+.counter {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.highlight {
+	background-color: #a5c97a;
+}
+
+.text-processed {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.plain {
+	background-color: inherit;
+	border: none;
+}
+
+.loader {
+	display: block;
+	margin: 0 auto;
+}
+
+.text-large {
+	font-size: 20px;
+	letter-spacing: 2px;
+	font-weight: 300;
+}
+
+.text-xlarge {
+	font-size: 26px;
+	letter-spacing: 2px;
+	font-weight: 300;
+}
+
+.text-xxlarge {
+	font-size: 32px;
+	letter-spacing: 2px;
+}
+
+input.input-xlarge {
+	font-size: 26px;
+	line-height: 38px;
+	height: 32px;
+	font-weight: 300;
+}
+
+.bordered {
+	border-bottom: 1px solid #eee;
+	padding: 15px 0;
+	margin-top: 10px;
+}
+
+#frmPercent fieldset {
+	margin-bottom: 25px;
+}
+
+.pad-left-sml {
+	padding-left: 10px;
+}

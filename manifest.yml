@@ -1,0 +1,16 @@
+--- 
+applications: 
+  .: 
+    name: casper
+    framework: 
+      name: standalone
+      info: 
+        mem: 64M
+        description: Standalone Application
+        exec: 
+    runtime: php
+    command: start
+    infra: rs
+    url: casper.rs.af.cm
+    mem: 128M
+    instances: 1
