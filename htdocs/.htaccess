@@ -9,7 +9,7 @@ ErrorDocument 500 /errors/500.html
 ErrorDocument 503 /errors/503.html
 
 FileETag none
-<FilesMatch "\.(gif|jpg|png|js|swf|css)$">
+<FilesMatch "\.(gif|jpg|png|js|swf|css|ico)$">
         ExpiresActive On
         ExpiresDefault "access plus 6 months"
 </FilesMatch>

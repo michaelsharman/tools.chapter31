@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="<?= $paths['assets']; ?>css/_libs/bootstrap/bootstrap.custom.css">
 	<link rel="stylesheet" href="<?= $paths['assets']; ?>css/main.css">
 	<?php } else { ?>
-	<link rel="stylesheet" href="<?= $paths['assets']; ?>dist/ch31tools_0.7.min.css">
+	<link rel="stylesheet" href="<?= $paths['assets']; ?>dist/ch31tools_0.9.min.css">
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-306772-2']);
@@ -29,16 +29,18 @@
 <header class="side-bar">
 	<nav>
 		<ul class="nav">
-			<!-- <li<?php if ($active === 'browser') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>browser">Browser details</a></li> -->
 			<li<?php if ($active === 'entitize') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>entitize">Entitize</a></li>
 			<li<?php if ($active === 'factorial') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>factorial">Factorial</a></li>
+			<li<?php if ($active === 'keycode') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>keycode">Keycode</a></li>
 			<li<?php if ($active === 'tidy') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>tidy">(X)HTML Tidy</a></li>
 			<li<?php if ($active === 'lettercount') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>lettercount">Letter/Word count</a></li>
 			<li<?php if ($active === 'markdown') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>markdown">Markdown</a></li>
 			<li<?php if ($active === 'percent') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>percent">Percentages</a></li>
 			<li<?php if ($active === 'powerset') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>powerset">Powerset</a></li>
 			<li<?php if ($active === 'striptags') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>striptags">Strip Tags</a></li>
+			<li<?php if ($active === 'stopwatch') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>stopwatch">Stopwatch</a></li>
 			<li<?php if ($active === 'uuid') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>uuid">UUID Generator</a></li>
+			<li<?php if ($active === 'weather') { ?> class="active"<?php } ?>><a href="<?= $paths['www']; ?>weather">Weather</a></li>
 		</ul>
 	</nav>
 </header>

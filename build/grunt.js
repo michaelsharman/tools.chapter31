@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		pkg: {
 			"name": "ch31tools",
 			"title":"Chapter 31 Tools",
-			"version": "0.7",
+			"version": "0.9",
 			"author": "Michael Sharman",
 			"homepage": "http://michaelsharman.com",
 			"main": "grunt"
@@ -24,6 +24,7 @@ module.exports = function(grunt) {
 					'../htdocs/js/_libs/jquery/jquery.min.js',
 					'../htdocs/js/string.js',
 					'../htdocs/js/character_count.js',
+					'../htdocs/js/keycode.js',
 					'../htdocs/js/markdown.js',
 					'../htdocs/js/tidy.js',
 					'../htdocs/js/entitize.js',
@@ -31,8 +32,9 @@ module.exports = function(grunt) {
 					'../htdocs/js/percent.js',
 					'../htdocs/js/powerset.js',
 					'../htdocs/js/strip_tags.js',
-					//'../htdocs/js/browser.js',
-					'../htdocs/js/uuid.js'
+					'../htdocs/js/stopwatch.js',
+					'../htdocs/js/uuid.js',
+					'../htdocs/js/weather.js'
 				],
 				dest: '../htdocs/dist/<%= pkg.name %>.js'
 			},

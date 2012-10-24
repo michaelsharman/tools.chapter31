@@ -31,6 +31,12 @@ $app->get('/factorial', function() use ($app, $paths) {
 	$app->render('includes/footer.php');
 });
 
+$app->get('/keycode', function() use ($app, $paths) {
+	$app->render('includes/header.php', array('active' => 'keycode', 'paths' => $paths));
+	$app->render('keycode.php');
+	$app->render('includes/footer.php');
+});
+
 $app->get('/lettercount', function() use ($app, $paths) {
 	$app->render('includes/header.php', array('active' => 'lettercount', 'paths' => $paths));
 	$app->render('character_count.php');
@@ -61,6 +67,12 @@ $app->get('/striptags', function() use ($app, $paths) {
 	$app->render('includes/footer.php');
 });
 
+$app->get('/stopwatch', function() use ($app, $paths) {
+	$app->render('includes/header.php', array('active' => 'stopwatch', 'paths' => $paths));
+	$app->render('stopwatch.php');
+	$app->render('includes/footer.php');
+});
+
 $app->get('/tidy', function() use ($app, $paths) {
 	$app->render('includes/header.php', array('active' => 'tidy', 'paths' => $paths));
 	$app->render('tidy.php');
@@ -70,5 +82,11 @@ $app->get('/tidy', function() use ($app, $paths) {
 $app->get('/uuid', function() use ($app, $paths) {
 	$app->render('includes/header.php', array('active' => 'uuid', 'paths' => $paths));
 	$app->render('uuid.php');
+	$app->render('includes/footer.php');
+});
+
+$app->get('/weather', function() use ($app, $paths) {
+	$app->render('includes/header.php', array('active' => 'weather', 'paths' => $paths));
+	$app->render('weather.php');
 	$app->render('includes/footer.php');
 });

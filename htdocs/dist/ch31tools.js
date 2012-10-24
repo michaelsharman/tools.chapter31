@@ -115,6 +115,113 @@ TOOLS.charcount = (function($,TOOLS) {
 }(jQuery,TOOLS));
 var TOOLS = TOOLS || {};
 
+TOOLS.stopwatch = (function(document,$,TOOLS) {
+	'use strict';
+
+	// http://unixpapa.com/js/key.html
+
+	var $key = $('#key'),
+		$resultKey = $('#resultKey'),
+		$resultKeyCode = $('#resultKeyCode'),
+		$resultKeyCodeTranslate = $('#resultKeyCodeTranslate'),
+		controlKeyCodeMap = {
+			8: 'Backspace',
+			9: 'Tab',
+			13: 'Enter',
+			16: 'Shift',
+			17: 'Ctrl',
+			18: 'Alt/Option',
+			27: 'Escape',
+			32: 'Space',
+			33: 'Page Up',
+			34: 'Page Down',
+			35: 'End',
+			36: 'Home',
+			37: 'Left Arrow',
+			38: 'Top Arrow',
+			39: 'Right Arrow',
+			40: 'Bottom Arrow',
+			45: 'Insert',
+			46: 'Delete',
+			91: 'Command/Apple/Windows Left',
+			93: 'Command/Apple/Windows Right',
+			124: 'Print Screen',
+			// Overwrite some crazy stuff
+			186: 'Semi-Colon',
+			187: 'Equals',
+			188: 'Comma',
+			189: 'Hyphen',
+			190: 'Period',
+			191: 'Forward Slash',
+			192: 'Backtick',
+			219: 'Bracket Left',
+			221: 'Bracket Right',
+			220: 'Backslash',
+			222: 'Apostrophe'
+		},
+		keyCodeMap = $.extend({
+			48: '0',
+			49: '1',
+			50: '2',
+			51: '3',
+			52: '4',
+			53: '5',
+			54: '6',
+			55: '7',
+			56: '8',
+			57: '9',
+			65: 'a',
+			66: 'b',
+			67: 'c',
+			68: 'd',
+			69: 'e',
+			70: 'f',
+			71: 'g',
+			72: 'h',
+			73: 'i',
+			74: 'j',
+			75: 'k',
+			76: 'l',
+			77: 'm',
+			78: 'n',
+			79: 'o',
+			80: 'p',
+			81: 'q',
+			82: 'r',
+			83: 's',
+			84: 't',
+			85: 'u',
+			86: 'v',
+			87: 'w',
+			88: 'x',
+			89: 'y',
+			90: 'z'
+		}, controlKeyCodeMap);
+
+	$(function() {
+
+		$(document).keyup(function(evt) {
+			var kc = evt.which || evt.keyCode,
+				// Look in the map first as it has conrol characters etc
+				key = controlKeyCodeMap[kc] || String.fromCharCode(kc),
+				counter = 0;
+			$resultKey.html(key);
+			$resultKeyCode.html(kc);
+			if (counter === 0) {
+				$('div.results').show();
+				counter++;
+			}
+		});
+
+		$key.keyup(function() {
+			$resultKeyCodeTranslate.html(keyCodeMap[$key.val()]);
+		});
+
+	});
+
+}(document,jQuery,TOOLS));
+var TOOLS = TOOLS || {};
+
 TOOLS.markdown = (function($) {
 	'use strict';
 
@@ -509,6 +616,84 @@ TOOLS.entitize = (function($) {
 }(jQuery));
 var TOOLS = TOOLS || {};
 
+TOOLS.stopwatch = (function(window,document,$,TOOLS) {
+	'use strict';
+
+	var action = 'stop',
+		currentTime,
+		$el = $('#text-processed'),
+		timer;
+
+	function increment() {
+		currentTime.setMilliseconds(currentTime.getMilliseconds()+100);
+		render();
+	}
+
+	function pad(i) {
+		return (i < 10) ? '0'+i : i;
+	}
+
+	function render() {
+		var t = currentTime,
+			val = [];
+		val.push(pad(t.getHours()));
+		val.push(pad(t.getMinutes()));
+		val.push(pad(t.getSeconds()));
+		val.push(t.getMilliseconds().toString().substr(0,1));
+		$el.html(val.join(':'));
+	}
+
+	function reset() {
+		currentTime = new Date(0,0);
+		render();
+	}
+
+	function run() {
+		if (action === 'start') {
+			stop();
+			action = 'stop';
+			$('#btnStopwatch').html("Start &raquo;");
+		} else {
+			start();
+			action = 'start';
+			$('#btnStopwatch').html("Stop &raquo;");
+		}
+	}
+
+	function start() {
+		timer = window.setInterval(increment, 100);
+	}
+
+	function stop() {
+		window.clearInterval(timer);
+	}
+
+	$(function() {
+		reset();
+
+		// Control the stopwatch via the spacebar and escape key
+		$(document).keydown(function(evt) {
+			if (evt.which === 27) {	// escape
+				reset();
+			} else if (evt.which === 32) {	// space
+				run();
+				return false;
+			}
+		});
+
+		$('#btnReset').on('click', function() {
+			reset();
+		});
+
+		// Control the stopwatch via the button
+		$('#btnStopwatch').on('click', function() {
+			run();
+		});
+	});
+
+}(window,document,jQuery,TOOLS));
+var TOOLS = TOOLS || {};
+
 TOOLS.uuid = (function($,TOOLS) {
 	'use strict';
 
@@ -547,3 +732,90 @@ TOOLS.uuid = (function($,TOOLS) {
 	});
 
 }(jQuery,TOOLS));
+var TOOLS = TOOLS || {};
+
+TOOLS.weather = (function($,TOOLS,navigator) {
+	'use strict';
+
+	var apiKey = 'ba88605103040608122410',
+		days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+
+	/**
+	* Uses the geoplugin to retrieve location information for the current user
+	* See more at http://www.geoplugin.com/quickstart
+	*/
+	function getLocation() {
+		var loc = {
+			city: geoplugin_city(),
+			region: geoplugin_region(),
+			countryName: geoplugin_countryName(),
+			latitude: geoplugin_latitude(),
+			longitude: geoplugin_longitude()
+		};
+		return loc;
+	}
+
+	function getWeather(location) {
+		var url = 'http://free.worldweatheronline.com/feed/weather.ashx?callback=render',
+			options = {
+				extra: 'localObsTime',
+				format: 'JSON',
+				includeLocation: 'yes',
+				key: apiKey,
+				num_of_days: 2,
+				q: [location.city, location.region, location.countryName].join(',')
+			};
+		$.ajax({
+			url: url,
+			contentType: 'application/json',
+			data: options,
+			dataType: 'jsonp',
+			jsonp: false,
+			cache: false,
+			global: false,
+			jsonpCallback: 'render',
+			ajaxSend: $('#frmWeather').append('<img src="/img/ajax-loader.gif" alt="loading..." class="loader" />')
+		})
+		.done(function(data) {
+			$('#frmWeather > .loader').hide();
+			render(data);
+		})
+		.fail(function(jqXHR, textStatus, errorThrown) {
+			// TODO: Implement decent error handling
+		});
+	}
+
+	function render(data) {
+		var weather = data.data,
+			nearestArea = weather.nearest_area[0].areaName[0].value,
+			d_now = new Date(weather.current_condition[0].localObsDateTime.replace('-', ',')),
+			d_today = new Date(weather.weather[0].date.replace('-', ',')),
+			d_tomorrow = new Date(weather.weather[1].date.replace('-', ',')),
+			weatherTomorrow = weather.weather[1];
+			/*nearestArea = weather.nearest_area[0].areaName[0].value,
+			today = new Date(weather.current_condition[0].localObsDateTime.replace('-', ',')),
+			future1 = new Date(weather.weather[0].date.replace('-', ',')),
+			future2 = new Date(weather.weather[1].date.replace('-', ',')),
+			weatherTomorrow = (future1.getDate() === future2.getDate()) ? weather.weather[0] : weather.weather[1],
+			tomorrow = new Date(weatherTomorrow.date.replace('-', ','));*/
+
+		$('#city').html(getLocation().city);
+		$('#region').html('(' + nearestArea + ')');
+		$('#now-temp').html(weather.current_condition[0].temp_C);
+		$('#now-temp-desc').html(weather.current_condition[0].weatherDesc[0].value);
+		$('#today-temp').html(weather.weather[0].tempMaxC);
+		$('#today-temp-desc').html(' (' + weather.weather[0].weatherDesc[0].value + ')');
+		$('#tomorrow-day').html(days[d_tomorrow.getDay()]);
+		$('#tomorrow-temp').html(weatherTomorrow.tempMaxC);
+		$('#tomorrow-temp-desc').html(' (' + weatherTomorrow.weatherDesc[0].value +')');
+
+		$('div.results').show();
+	}
+
+	$(function() {
+
+		getWeather(getLocation());
+
+	});
+
+}(jQuery,TOOLS,navigator));
