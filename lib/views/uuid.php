@@ -8,7 +8,7 @@
 
 	<form id="frmUUID" method="get" action="/uuid">
 		<fieldset>
-		<div class="row">
+		<div class="row-fluid">
 			<div class="span4">
 				<label for="op-v3">
 					<input type="radio" id="op-v3" name="version" value="3"> Version 3 (MD5 hash)

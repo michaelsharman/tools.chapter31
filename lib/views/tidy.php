@@ -15,7 +15,7 @@
 				</label>
 			</label>
 		</fieldset>
-		<div id="tidy-options" class="hide row">
+		<div id="tidy-options" class="hide row-fluid">
 			<div class="span4">
 				<label for="op-indent">
 					<input type="checkbox" id="op-indent" name="op-indent" value="1" checked> Indent block-level tags

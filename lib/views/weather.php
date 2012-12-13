@@ -1,6 +1,6 @@
 <article>
 	<h1>Weather</h1>
-	<div class="row weather results">
+	<div class="row-fluid results" id="weather">
 		<div class="row-fluid">
 			<div class="span12">
 				<div id="now">

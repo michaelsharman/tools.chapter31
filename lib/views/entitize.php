@@ -10,7 +10,7 @@
 			<p><a class="btn btn-small btn-info pull-left" href="#" id="btn-options"><i class="icon-info-sign icon-white"></i> Options <i id="chev" class="icon-chevron-down icon-white"></i></a></p>
 			<button type="submit" class="btn btn-success btn-large pull-right">Entitize &raquo;</button>
 		</fieldset>
-		<div id="tidy-options" class="hide row">
+		<div id="tidy-options" class="hide">
 			<div class="span6">
 				<label for="op-quotestyle">
 					<select id="op-quotestyle" name="op-quotestyle">

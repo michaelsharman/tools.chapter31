@@ -163,14 +163,14 @@ Orange
 
 	<form id="frmMarkdown" method="POST">
 		<fieldset>
-			<div class="row control-group">
+			<div class="row-fluid control-group">
 				<div class="span12">
 					<label class="control-label" for="md-content">
 						<textarea class="input-block-level" name="md-content" id="md-content" rows="15" autofocus></textarea>
 					</label>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row-fluid">
 				<div class="span12">
 					<label for="md-extra">
 						<input type="checkbox" name="md-extra" id="md-extra" value="1" checked>

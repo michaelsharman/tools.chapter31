@@ -1,7 +1,7 @@
 <?php
 
 $paths = array(
-	"assets"		=> "/",
+	"assets"		=> "/static/",
 	"docroot"	=> $_SERVER["DOCUMENT_ROOT"],
 	"lib"		=> $libpath,
 	"log"		=> "../log",

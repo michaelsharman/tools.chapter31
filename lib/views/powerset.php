@@ -7,21 +7,21 @@
 	<p>Enter a comma delimited list below (with no braces or brackets) to generate the powerset.</p>
 	<form id="frmPowerset">
 		<fieldset>
-			<div class="row">
+			<div class="row-fluid">
 				<div class="span12">
 					<label for="number">
 						<input type="text" id="set" class="span12" autofocus>
 					</label>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row-fluid">
 				<div class="span12">
 					<p><a class="btn btn-small btn-info pull-left" href="#" id="btn-options"><i class="icon-info-sign icon-white"></i> Options <i id="chev" class="icon-chevron-down icon-white"></i></a></p>
 					<button type="submit" class="pull-right btn btn-success">Process &raquo;</button>
 				</div>
 			</div>
 		</fieldset>
-		<div id="options" class="hide row">
+		<div id="options" class="hide row-fluid">
 			<div class="span4 format-list">
 				<fieldset>
 					<legend>Return List</legend>

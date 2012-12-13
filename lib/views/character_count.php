@@ -8,14 +8,12 @@
 
 	<form id="frmLetterCount">
 		<fieldset>
-			<div class="row control-group">
-				<div class="span12">
-					<label class="control-label" for="content">
-						<textarea class="input-block-level" name="content" id="content" rows="15" autofocus tabindex="1"></textarea>
-					</label>
-				</div>
+			<div class="row-fluid">
+				<label class="control-label" for="content">
+					<textarea class="input-block-level" name="content" id="content" rows="15" autofocus tabindex="1"></textarea>
+				</label>
 			</div>
-			<div class="row">
+			<div class="row-fluid">
 				<div class="span8">
 					<label for="count">
 						<input type="text" name="count" id="count" class="input-small" placeholder="0" title="Highlight the text at the following position" tabindex="2">

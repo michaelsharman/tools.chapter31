@@ -10,7 +10,7 @@ http://www.squidoo.com/how-to-calculate-percentages
 
 	<form id="frmPercent">
 		<fieldset class="bordered">
-			<div class="row control-group">
+			<div class="row-fluid control-group">
 				<div class="span8">
 					<label class="control-label pull-left text-xlarge" for="num1">
 						What is
@@ -28,7 +28,7 @@ http://www.squidoo.com/how-to-calculate-percentages
 			</div>
 		</fieldset>
 		<fieldset class="bordered">
-			<div class="row control-group">
+			<div class="row-fluid control-group">
 				<div class="span8">
 					<label class="control-label pull-left text-xlarge" for="num3">
 						<input type="number" class="span2 input-xlarge" id="num3">
@@ -45,7 +45,7 @@ http://www.squidoo.com/how-to-calculate-percentages
 			</div>
 		</fieldset>
 		<fieldset class="bordered">
-			<div class="row control-group">
+			<div class="row-fluid control-group">
 				<div class="span8">
 					<label class="control-label pull-left text-xlarge" for="num5">
 						<input type="number" class="span2 input-xlarge" id="num5">

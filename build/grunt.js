@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		pkg: {
 			"name": "ch31tools",
 			"title":"Chapter 31 Tools",
-			"version": "0.9",
+			"version": "1.1",
 			"author": "Michael Sharman",
 			"homepage": "http://michaelsharman.com",
 			"main": "grunt"
@@ -21,48 +21,49 @@ module.exports = function(grunt) {
 		concat: {
 			js: {
 				src: [
-					'../htdocs/js/_libs/jquery/jquery.min.js',
-					'../htdocs/js/string.js',
-					'../htdocs/js/character_count.js',
-					'../htdocs/js/keycode.js',
-					'../htdocs/js/markdown.js',
-					'../htdocs/js/tidy.js',
-					'../htdocs/js/entitize.js',
-					'../htdocs/js/factorial.js',
-					'../htdocs/js/percent.js',
-					'../htdocs/js/powerset.js',
-					'../htdocs/js/strip_tags.js',
-					'../htdocs/js/stopwatch.js',
-					'../htdocs/js/uuid.js',
-					'../htdocs/js/weather.js'
+					'../htdocs/static/js/_libs/jquery/jquery.min.js',
+					'../htdocs/static/js/string.js',
+					'../htdocs/static/js/character_count.js',
+					'../htdocs/static/js/entitize.js',
+					'../htdocs/static/js/factorial.js',
+					'../htdocs/static/js/keycode.js',
+					'../htdocs/static/js/markdown.js',
+					'../htdocs/static/js/percent.js',
+					'../htdocs/static/js/powerset.js',
+					'../htdocs/static/js/stopwatch.js',
+					'../htdocs/static/js/strip_tags.js',
+					'../htdocs/static/js/tidy.js',
+					'../htdocs/static/js/uuid.js',
+					'../htdocs/static/js/weather.js'
 				],
-				dest: '../htdocs/dist/<%= pkg.name %>.js'
+				dest: '../htdocs/static/dist/<%= pkg.name %>.js'
 			},
 			css: {
 				src: [
-					'../htdocs/css/_libs/bootstrap/bootstrap.custom.css',
-					'../htdocs/css/main.css'
+					'../htdocs/static/vendor/bootstrap/css/bootstrap.min.css',
+					'../htdocs/static/vendor/bootstrap/css/bootstrap-responsive.min.css',
+					'../htdocs/static/css/main.css'
 				],
-				dest: '../htdocs/dist/<%= pkg.name %>.css'
+				dest: '../htdocs/static/dist/<%= pkg.name %>.css'
 			}
 		},
 
 		min: {
 			dist: {
 				src: ['<banner:meta.banner>', '<config:concat.js.dest>'],
-				dest: '../htdocs/dist/<%= pkg.name %>_<%= pkg.version %>.min.js'
+				dest: '../htdocs/static/dist/<%= pkg.name %>_<%= pkg.version %>.min.js'
 			}
 		},
 
 		cssmin: {
 			dist: {
 				src: ['<banner:meta.banner>', '<config:concat.css.dest>'],
-				dest: '../htdocs/dist/<%= pkg.name %>_<%= pkg.version %>.min.css'
+				dest: '../htdocs/static/dist/<%= pkg.name %>_<%= pkg.version %>.min.css'
 			}
 		},
 
 		lint: {
-			files: ['grunt.js', '../htdocs/js/*.js']
+			files: ['grunt.js', '../htdocs/static/js/*.js']
 		},
 
 		watch: {
