@@ -175,7 +175,7 @@ article {
 }
 
 .text-xlarge {
-	font-size: 26px;
+	font-size: 25px;
 	letter-spacing: 2px;
 	font-weight: 300;
 }
@@ -223,8 +223,8 @@ article {
 }
 
 input.input-xlarge {
-	font-size: 26px;
-	line-height: 38px;
+	font-size: 20px;
+	line-height: 20px;
 	height: 32px;
 	font-weight: 300;
 }

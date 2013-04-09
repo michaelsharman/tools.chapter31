@@ -8,7 +8,7 @@ switch ($_SERVER["SERVER_NAME"])
 	case "casper.rs.af.cm":
 		//ini_set("display_errors", 1);
 		//error_reporting(E_ALL|E_STRICT);
-		define("APPMODE", "development_");
+		define("APPMODE", "development");
 		define("TO_EMAIL", "sharmo@gmail.com");
 		$libpath = '../lib';
 		break;

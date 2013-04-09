@@ -15,9 +15,7 @@ http://www.squidoo.com/how-to-calculate-percentages
 					<label class="control-label pull-left text-xlarge" for="num1">
 						What is
 						<input type="number" class="span2 input-xlarge" id="num1" autofocus>
-						%
-					</label>
-					<label class="control-label pull-left text-xlarge pad-left-sml" for="num2"> of
+						% of
 						<input type="number" class="span2 input-xlarge" id="num2">
 						?
 					</label>
@@ -33,8 +31,6 @@ http://www.squidoo.com/how-to-calculate-percentages
 					<label class="control-label pull-left text-xlarge" for="num3">
 						<input type="number" class="span2 input-xlarge" id="num3">
 						is what percent of
-					</label>
-					<label class="control-label pull-left text-xlarge pad-left-sml" for="num4">
 						<input type="number" class="span2 input-xlarge" id="num4">
 						?
 					</label>
@@ -50,8 +46,6 @@ http://www.squidoo.com/how-to-calculate-percentages
 					<label class="control-label pull-left text-xlarge" for="num5">
 						<input type="number" class="span2 input-xlarge" id="num5">
 						is
-					</label>
-					<label class="control-label pull-left text-xlarge pad-left-sml" for="num6">
 						<input type="number" class="span2 input-xlarge" id="num6">
 						% of what?
 					</label>

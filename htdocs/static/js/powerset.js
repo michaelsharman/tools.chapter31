@@ -84,12 +84,6 @@ TOOLS.factorial = (function($,TOOLS) {
 			$('div.results').show();
 		});
 
-		$('#btn-options').on('click', function(ev) {
-			ev.preventDefault();
-			$('#options').toggle();
-			$('#chev').toggleClass('icon-chevron-down').toggleClass('icon-chevron-up');
-		});
-
 		// List and JSON options are mutually exclusive so disable opposite options
 		$('input[name="op-format"]').on('change', function(ev) {
 			var hide = $(this).val() === 'JSON';

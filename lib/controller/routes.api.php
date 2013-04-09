@@ -1,5 +1,19 @@
 <?php
 
+$app->post('/api/base64', function() use ($app) {
+	$content = $app->request()->post('content');
+	$action = $app->request()->post('action');
+	$return = "";
+
+	if ($action == "encode") {
+		$return = base64_encode($content);
+	} else if ($action == "decode") {
+		$return = base64_decode($content);
+	}
+
+	echo $return;
+});
+
 $app->post('/api/entitize', function() use ($app) {
 	$content = $app->request()->post('content');
 	$quotestyle = $app->request()->post('quotestyle');

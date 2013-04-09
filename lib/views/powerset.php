@@ -21,7 +21,7 @@
 				</div>
 			</div>
 		</fieldset>
-		<div id="options" class="hide row-fluid">
+		<div id="page-options" class="hide row-fluid">
 			<div class="span4 format-list">
 				<fieldset>
 					<legend>Return List</legend>

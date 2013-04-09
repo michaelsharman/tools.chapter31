@@ -33,6 +33,7 @@
 		<header class="side-bar span3">
 			<nav>
 				<ul class="nav">
+					<li<?php if ($active === 'base64') { ?> class="active"<?php } ?>><a href="<?php echo $paths['www']; ?>base64">Base64</a></li>
 					<li<?php if ($active === 'entitize') { ?> class="active"<?php } ?>><a href="<?php echo $paths['www']; ?>entitize">Entitize</a></li>
 					<li<?php if ($active === 'factorial') { ?> class="active"<?php } ?>><a href="<?php echo $paths['www']; ?>factorial">Factorial</a></li>
 					<li<?php if ($active === 'keycode') { ?> class="active"<?php } ?>><a href="<?php echo $paths['www']; ?>keycode">Keycode</a></li>

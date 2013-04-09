@@ -13,6 +13,12 @@ $app->get('/about', function() use ($app, $paths) {
 	$app->render('includes/footer.php');
 });
 
+$app->get('/base64', function() use ($app, $paths) {
+	$app->render('includes/header.php', array('active' => 'base64', 'paths' => $paths));
+	$app->render('base64.php');
+	$app->render('includes/footer.php');
+});
+
 $app->get('/browser', function() use ($app, $paths) {
 	$app->render('includes/header.php', array('active' => 'browser', 'paths' => $paths));
 	$app->render('browser.php');

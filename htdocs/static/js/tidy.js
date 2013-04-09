@@ -24,21 +24,15 @@ TOOLS.tidy = (function($) {
 				$textProcessed.html(data);
 				$textProcessed.find('table').addClass('table').addClass('table-bordered');
 				$results.show();
-				$('#frmTidy > .loader').hide();
-				if ($('#tidy-options').is(':visible')) {
+				if ($('#page-options').is(':visible')) {
 					// scroll to .results if the help section is open
 					$('html,body').animate({scrollTop: $results.offset().top});
 				}
+				TOOLS.main.ajaxDone();
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
 				// TODO: Implement decent error handling
 			});
-		});
-
-		$('#btn-options').on('click', function(ev) {
-			ev.preventDefault();
-			$('#tidy-options').toggle();
-			$('#chev').toggleClass('icon-chevron-down').toggleClass('icon-chevron-up');
 		});
 
 	});

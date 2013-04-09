@@ -53,32 +53,36 @@ TOOLS.stopwatch = (function(window,document,$,TOOLS,Modernizr) {
 	}
 
 	$(function() {
-		var supportsTouch = Modernizr.touch;
+		if ($('output.stopwatch').length) {
 
-		reset();
+			var supportsTouch = Modernizr.touch;
 
-		if (!supportsTouch) {
-			$('.for-screen').hide();
-		}
-
-		// Control the stopwatch via the spacebar and escape key
-		$(document).keydown(function(evt) {
-			if (evt.which === 27) {	// escape
-				reset();
-			} else if (evt.which === 32) {	// space
-				run();
-				return false;
-			}
-		});
-
-		$('#btnReset').on('click', function() {
 			reset();
-		});
 
-		// Control the stopwatch via the button
-		$('#btnStopwatch').on('click', function() {
-			run();
-		});
+			if (!supportsTouch) {
+				$('.for-screen').hide();
+			}
+
+			// Control the stopwatch via the spacebar and escape key
+			$(document).keydown(function(evt) {
+				if (evt.which === 27) {	// escape
+					reset();
+				} else if (evt.which === 32) {	// space
+					run();
+					return false;
+				}
+			});
+
+			$('#btnReset').on('click', function() {
+				reset();
+			});
+
+			// Control the stopwatch via the button
+			$('#btnStopwatch').on('click', function() {
+				run();
+			});
+
+		}
 	});
 
 }(window,document,jQuery,TOOLS,Modernizr));

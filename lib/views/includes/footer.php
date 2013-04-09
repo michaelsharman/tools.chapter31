@@ -9,8 +9,10 @@
 
 <?php if (APPMODE === 'development') { ?>
 <script src="<?php echo $paths['assets']; ?>js/_libs/jquery/jquery.min.js"></script>
+<script src="<?php echo $paths['assets']; ?>js/_main.js"></script>
 <script src="<?php echo $paths['assets']; ?>js/string.js"></script>
 <script src="<?php echo $paths['assets']; ?>js/character_count.js"></script>
+<script src="<?php echo $paths['assets']; ?>js/base64.js"></script>
 <script src="<?php echo $paths['assets']; ?>js/keycode.js"></script>
 <script src="<?php echo $paths['assets']; ?>js/markdown.js"></script>
 <script src="<?php echo $paths['assets']; ?>js/tidy.js"></script>

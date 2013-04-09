@@ -85,27 +85,31 @@ TOOLS.keycode = (function(document,$,TOOLS) {
 
 	$(function() {
 
-		$resultKeyCodeTranslate.hide();
+		if ($('#frmKeycode').length) {
 
-		$(document).keyup(function(evt) {
-			var kc = evt.which || evt.keyCode,
-				// Look in the map first as it has conrol characters etc
-				key = controlKeyCodeMap[kc] || String.fromCharCode(kc),
-				counter = 0;
-			$resultKey.html(key);
-			$resultKeyCode.html(kc);
-			if (counter === 0) {
-				$('div.results').show();
-				counter++;
-			}
-		});
+			$resultKeyCodeTranslate.hide();
 
-		$key.keyup(function(evt) {
-			evt.stopPropagation();
-			var code = keyCodeMap[$key.val()],
-				result = (code === undefined) ? '' : code;
-			$resultKeyCodeTranslate.html(result).show();
-		});
+			$(document).keyup(function(evt) {
+				var kc = evt.which || evt.keyCode,
+					// Look in the map first as it has conrol characters etc
+					key = controlKeyCodeMap[kc] || String.fromCharCode(kc),
+					counter = 0;
+				$resultKey.html(key);
+				$resultKeyCode.html(kc);
+				if (counter === 0) {
+					$('div.results').show();
+					counter++;
+				}
+			});
+
+			$key.keyup(function(evt) {
+				evt.stopPropagation();
+				var code = keyCodeMap[$key.val()],
+					result = (code === undefined) ? '' : code;
+				$resultKeyCodeTranslate.html(result).show();
+			});
+
+		}
 
 	});
 

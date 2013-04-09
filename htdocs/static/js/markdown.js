@@ -36,12 +36,6 @@ TOOLS.markdown = (function($) {
 			});
 		});
 
-		$('#btn-cheatsheet').on('click', function(ev) {
-			ev.preventDefault();
-			$('#md-cheatsheet').toggle();
-			$('#chev').toggleClass('icon-chevron-down').toggleClass('icon-chevron-up');
-		});
-
 	});
 
 }(jQuery));

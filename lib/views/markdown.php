@@ -4,7 +4,9 @@
 	syntax in the text box below and click <em>Process</em> to see the content rendered as HTML.</p>
 	<p>Optionally, leave the "Use markdown extra" checkbox ticked to process entered text with
 	<a href="http://michelf.com/projects/php-markdown/extra/" target="_blank">PHP markdown extra</a> extended sytax.</p>
-	<div id="md-cheatsheet" class="hide">
+
+<p><a class="btn btn-small btn-info" href="#" id="btn-options"><i class="icon-info-sign icon-white"></i> Markdown cheatsheet <i id="chev" class="icon-chevron-down icon-white"></i></a></p>
+	<div id="page-options" class="hide">
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -159,7 +161,6 @@ Orange
 		</table>
 		<p>For more information, <a href="http://daringfireball.net/projects/markdown/basics" target="_blank">view the official docs for Markdown</a></p>
 	</div>
-	<p><a class="btn btn-small btn-info" href="#" id="btn-cheatsheet"><i class="icon-info-sign icon-white"></i> Markdown cheatsheet <i id="chev" class="icon-chevron-down icon-white"></i></a></p>
 
 	<form id="frmMarkdown" method="POST">
 		<fieldset>

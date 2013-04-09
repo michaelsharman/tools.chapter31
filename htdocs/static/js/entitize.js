@@ -21,7 +21,7 @@ TOOLS.entitize = (function($) {
 			})
 			.done(function(data) {
 				$('#entitize-content').val(data);
-				$('#frmEntitize > .loader').hide();
+				TOOLS.main.ajaxDone();
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
 				// TODO: Implement decent error handling
