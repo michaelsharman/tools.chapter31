@@ -28,7 +28,7 @@
 
 <body>
 
-<div class="container-fluid" style="padding: 0;">
+<div class="container-fluid">
 	<div class="row-fluid">
 		<header class="side-bar span3">
 			<nav>
