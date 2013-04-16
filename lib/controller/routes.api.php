@@ -43,14 +43,14 @@ $app->post('/api/entitize', function() use ($app) {
 	}
 });
 
-$app->post('/api/markdown', function() use ($app, $paths) {
+$app->post('/api/markdown', function() use ($app, $config) {
 	try {
 		$md = $app->request()->post('content');
 		$extra = $app->request()->post('extra');
 		if ($extra == 1) {
-			include_once $paths['packages'] . '/com/michelf/markdown-extra-1.2.5/markdown.php';
+			include_once $config['packages'] . '/com/michelf/markdown-extra-1.2.5/markdown.php';
 		} else {
-			include_once $paths['packages'] . '/com/michelf/markdown-1.0.1/markdown.php';
+			include_once $config['packages'] . '/com/michelf/markdown-1.0.1/markdown.php';
 		}
 		echo Markdown($md);
 	} catch (Exception $e) {
@@ -121,7 +121,7 @@ $app->post('/api/tidy', function() use ($app) {
 	echo htmlspecialchars($tidy);
 });
 
-$app->get('/api/uuid', function() use ($app, $paths) {
+$app->get('/api/uuid', function() use ($app, $config) {
 	$format = $app->request()->get('format');
 	$textUpper = $app->request()->get('textUpper');
 	$version = $app->request()->get('version');
@@ -129,7 +129,7 @@ $app->get('/api/uuid', function() use ($app, $paths) {
 	$randomString = "F135E5D0-141B-11E2-892E-0800200C9A66";
 	if (in_array($version, $validVersions)) {
 		try {
-			include_once $paths['packages'] . '/com/chapter31/uuid.php';
+			include_once $config['paths']['packages'] . '/com/chapter31/uuid.php';
 			$method = 'v'.$version;
 			// Generate the UUID
 			switch ($method) {

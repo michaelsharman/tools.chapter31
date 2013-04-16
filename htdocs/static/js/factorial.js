@@ -17,7 +17,8 @@ TOOLS.factorial = (function($,TOOLS) {
 			return f[n];
 		}
 		else {
-			return f[n] = n * factorial(n-1);
+			f[n] = n * factorial(n-1);
+			return f[n];
 		}
 	}
 
