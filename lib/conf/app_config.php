@@ -1,6 +1,6 @@
 <?php
 
-// Read the grunt package file to get package defaults
+// Read the grunt package file to get package defaults (symlink to lib/conf so we can read from prod)
 $gruntJSON = file_get_contents($libpath . "/conf/package.json");
 $gruntPackage = json_decode($gruntJSON, true);
 

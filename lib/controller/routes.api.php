@@ -8,7 +8,7 @@ $app->post('/api/base64', function() use ($app) {
 	if ($action == "encode") {
 		$return = base64_encode($content);
 	} else if ($action == "decode") {
-		$return = base64_decode($content);
+		$return = htmlspecialchars(base64_decode($content), 0, "UTF-8");
 	}
 
 	echo $return;
