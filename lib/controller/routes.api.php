@@ -48,11 +48,10 @@ $app->post('/api/markdown', function() use ($app, $config) {
 		$md = $app->request()->post('content');
 		$extra = $app->request()->post('extra');
 		if ($extra == 1) {
-			include_once $config['packages'] . '/com/michelf/markdown-extra-1.2.5/markdown.php';
+			echo \Michelf\Markdown::defaultTransform($md);;
 		} else {
-			include_once $config['packages'] . '/com/michelf/markdown-1.0.1/markdown.php';
+			echo \Michelf\MarkdownExtra::defaultTransform($md);;
 		}
-		echo Markdown($md);
 	} catch (Exception $e) {
 		echo $e->getMessage();
 	}

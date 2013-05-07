@@ -12,7 +12,6 @@ $config = array(
 		"lib"		=> $libpath, // see htdocs/index.php
 		"log"		=> "../log",
 		"packages"	=> "$libpath/packages",
-		"slim"		=> "$libpath/packages/com/slimframework/1.6.2/Slim",
 		"views"		=> "$libpath/views",
 		"www"		=> "/"
 	),
@@ -20,4 +19,4 @@ $config = array(
 	"version" => $gruntPackage['version']
 );
 
-require_once $config['paths']['slim'] . '/Slim.php';
+//ini_set("include_path", "vendor/michelf/php-markdown/Michelf:".ini_get("include_path"));

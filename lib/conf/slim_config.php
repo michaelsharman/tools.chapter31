@@ -1,8 +1,10 @@
 <?php
 
-$app = new Slim(array(
+$app = new \Slim\Slim(array(
 	'mode'				=> APPMODE,
-	'templates.path'	=> $config['paths']['views']
+	'templates.path'	=> $config['paths']['views'],
+	'view' 				=> '\Slim\LayoutView',
+	'layout' 				=> 'layouts/main.php'
 ));
 
 $app->configureMode('production', function() use ($app, $config) {
@@ -22,5 +24,3 @@ $app->configureMode('development', function() use ($app, $config) {
 		'log.level'		=> 4
 	));
 });
-
-?>
