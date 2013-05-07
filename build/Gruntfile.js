@@ -32,8 +32,8 @@ module.exports = function(grunt) {
 			},
 			css: {
 				src: [
-					'../htdocs/static/vendor/bootstrap/css/bootstrap.min.css',
-					'../htdocs/static/vendor/bootstrap/css/bootstrap-responsive.min.css',
+					'../htdocs/static/vendor/bootstrap/css/bootstrap.css',
+					'../htdocs/static/vendor/bootstrap/css/bootstrap-responsive.css',
 					'../htdocs/static/css/main.css'
 				],
 				dest: '../htdocs/static/dist/<%= pkg.name %>.css'

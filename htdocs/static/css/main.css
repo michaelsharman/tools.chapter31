@@ -1,9 +1,16 @@
+/*!
+* Custom styles and overrides
+*/
+
+/* Leave this here - if you have the body rule first it's ignored!!! */
+ignore {}
+
 body {
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-style: normal;
 	font-weight: 300;
 	font-variant: normal;
 	font-size: 14px;
-	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 18px;
 	color: #5F5C52;
 	background-color: #ffffff;
