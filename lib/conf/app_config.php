@@ -18,5 +18,3 @@ $config = array(
 	"simulateProduction" => !false, // leave the bang, having true|false reads better but we compare against the opposite value
 	"version" => $gruntPackage['version']
 );
-
-//ini_set("include_path", "vendor/michelf/php-markdown/Michelf:".ini_get("include_path"));
