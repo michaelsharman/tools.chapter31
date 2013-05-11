@@ -3,50 +3,91 @@ var TOOLS = TOOLS || {};
 TOOLS.percent = (function($) {
 	'use string';
 
-	function calculate1() {
-		var num1 = $('#num1').val(),
-			num2 = $('#num2').val(),
-			result = '';
-		if (num1 > 0 && num2 > 0) {
-			result = Math.ceil((num1 / 100) * num2);
-			$('#result1').html(result);
-		}
-	}
+	var percent = {
 
-	function calculate2() {
-		var num3 = $('#num3').val(),
-			num4 = $('#num4').val(),
-			result = '';
-		if (num3 > 0 && num4 > 0) {
-			result = Math.ceil((num3 / num4) * 100);
-			$('#result2').html(result + '%');
-		}
-	}
+		calculate1: function(n1, n2) {
+			if (this.validate(n1, n2)) {
+				return this.format((n1 / 100) * n2);
+			}
+			return 0;
+		},
 
-	function calculate3() {
-		var num5 = $('#num5').val(),
-			num6 = $('#num6').val(),
-			result = '';
-		if (num5 > 0 && num6 > 0) {
-			result = Math.ceil((num5 / (num6 / 100)));
-			$('#result3').html(result);
+		calculate2: function(n1, n2) {
+			if (this.validate(n1, n2)) {
+				return this.format((n1 / n2) * 100);
+			}
+			return 0;
+		},
+
+		calculate3: function(n1, n2) {
+			if (this.validate(n1, n2)) {
+				return this.format((n1 / (n2 / 100)));
+			}
+			return 0;
+		},
+
+		/**
+		* Formats a value that should be an integer or float
+		*/
+		format: function(val) {
+			if (this.isFloat(val)) {
+				if (this.numDecimalPlaces(val) > 1) {
+					// Double check that the first 2 decimal places aren't '00'. If they are, just round()
+					if  (val.toString().split('.')[1].substr(0, 2) !== '00') {
+						return val.toFixed(2);
+					}
+					return Math.round(val);
+				}
+			}
+			return val;
+		},
+
+		isFloat: function(val) {
+			return val % 1 !== 0;
+		},
+
+		numDecimalPlaces: function(val) {
+			return val.toString().split('.')[1].length;
+		},
+
+		/**
+		* Validates that there are 2 arguments, both numeric and > 0
+		*/
+		validate: function(n1, n2) {
+			try {
+				if ((!isNaN(n1) && n1 > 0) && (!isNaN(n2) && n2 > 0)) {
+					return true;
+				}
+				return false;
+			} catch (e) {
+				return false;
+			}
 		}
-	}
+
+	};
 
 	$(function() {
 
 		$('#num1,#num2').on('change', function(evt) {
-			calculate1();
+			$('#result1').html(
+				percent.calculate1($('#num1').val(), $('#num2').val())
+			);
 		});
 
 		$('#num3,#num4').on('change', function(evt) {
-			calculate2();
+			$('#result2').html(
+				percent.calculate2($('#num3').val(), $('#num4').val()) + '%'
+			);
 		});
 
 		$('#num5,#num6').on('change', function(evt) {
-			calculate3();
+			$('#result3').html(
+				percent.calculate3($('#num5').val(), $('#num6').val())
+			);
 		});
 
 	});
+
+	return percent;
 
 }(jQuery));
