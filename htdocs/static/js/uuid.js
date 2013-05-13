@@ -8,7 +8,7 @@ TOOLS.uuid = (function($,TOOLS) {
 		$('#frmUUID').on('submit', function(ev) {
 			ev.preventDefault();
 			var version = $('#frmUUID').find('input[name=version]:checked').val(),
-				textUpper = ($('#textUpper').attr('checked') === undefined) ? 0 : 1,
+				textUpper = ($('#textUpper').is(':checked')) ? 1 : 0,
 				format = ($('#format').attr('checked') === undefined) ? '' : $('#format').val(),
 				$textProcessed = $('div.text-processed');
 
