@@ -21,7 +21,7 @@ TOOLS.entitize = (function($) {
 				$('#content').val(data);
 				$('#frmStripTags > .loader').hide();
 			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
+			.fail(function() {
 				// TODO: Implement decent error handling
 			});
 		});

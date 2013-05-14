@@ -1,6 +1,6 @@
 var TOOLS = TOOLS || {};
 
-TOOLS.keycode = (function(document,$,TOOLS) {
+TOOLS.keycode = (function(document,$) {
 	'use strict';
 
 	// http://unixpapa.com/js/key.html
@@ -113,4 +113,4 @@ TOOLS.keycode = (function(document,$,TOOLS) {
 
 	});
 
-}(document,jQuery,TOOLS));
+}(document,jQuery));

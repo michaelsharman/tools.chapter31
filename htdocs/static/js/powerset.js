@@ -1,9 +1,53 @@
 var TOOLS = TOOLS || {};
 
-TOOLS.factorial = (function($,TOOLS) {
+TOOLS.powerset = (function($) {
 	'use strict';
 
-	var f = [];
+	/**
+	* Format results of a powerset call
+	*/
+	function format(result, options) {
+		var output,
+			separator,
+			temp,
+			encloseStart,
+			encloseEnd;
+
+		if (options.format === 'JSON') {
+			output = JSON.stringify(result);
+		} else {
+			// Set newline or comma delimited sets
+			separator = (options.newLineAfter) ? '<br>' : ',';
+			// Format output with the user option
+			switch (options.encloseBy) {
+				case "braces":
+					encloseStart = "{";
+					encloseEnd = "}";
+					break;
+				case "brackets":
+					encloseStart = "[";
+					encloseEnd = "]";
+					break;
+				case "quotes":
+					encloseStart = '"';
+					encloseEnd = '"';
+					break;
+				case "none":
+					encloseStart = "";
+					encloseEnd = "";
+					break;
+				default:
+					encloseStart = "";
+					encloseEnd = "";
+			}
+			temp = [];
+			$.each(result, function(index, el) {
+				temp.push(encloseStart+el+encloseEnd);
+			});
+			output = temp.join(separator);
+		}
+		return output;
+	}
 
 	/**
 	* Calculates the powerset (set of subsets)
@@ -30,12 +74,9 @@ TOOLS.factorial = (function($,TOOLS) {
 					encloseBy: $('input[name="op-enclosed"]:checked').val(),			// [braces|brackets|quotes|nothing]
 					trim: ($('#op-trim').attr('checked')) ? true : false						// [true|false]
 				},
-				result,
-				separator,
-				set,
-				temp,
-				encloseStart,
-				encloseEnd;
+				output,
+				set;
+
 			// Convert to an array, which is what powerset() expects
 			if (typeof data === 'string') {
 				set = data.split(',');
@@ -46,46 +87,14 @@ TOOLS.factorial = (function($,TOOLS) {
 				});
 			}
 			result = powerset(set);
-			// Format the result
-			if (options.format === 'JSON') {
-				result = JSON.stringify(result);
-			} else {
-				// Set newline or comma delimited sets
-				separator = (options.newLineAfter) ? '<br>' : ',';
-				// Format output with the user option
-				switch (options.encloseBy) {
-					case "braces":
-						encloseStart = "{";
-						encloseEnd = "}";
-						break;
-					case "brackets":
-						encloseStart = "[";
-						encloseEnd = "]";
-						break;
-					case "quotes":
-						encloseStart = '"';
-						encloseEnd = '"';
-						break;
-					case "none":
-						encloseStart = "";
-						encloseEnd = "";
-						break;
-					default:
-						encloseStart = "";
-						encloseEnd = "";
-				}
-				temp = [];
-				$.each(result, function(index, el) {
-					temp.push(encloseStart+el+encloseEnd);
-				});
-				result = temp.join(separator);
-			}
-			$('#text-processed').html(result);
+			output = format(result, options);
+
+			$('#text-processed').html(output);
 			$('div.results').show();
 		});
 
 		// List and JSON options are mutually exclusive so disable opposite options
-		$('input[name="op-format"]').on('change', function(ev) {
+		$('input[name="op-format"]').on('change', function() {
 			var hide = $(this).val() === 'JSON';
 			$('div.format-list').find('input').each(function() {
 				if ($(this).attr('name') !== 'op-format') {
@@ -95,4 +104,8 @@ TOOLS.factorial = (function($,TOOLS) {
 		});
 	});
 
-}(jQuery,TOOLS));
+	return {
+		powerset: powerset
+	};
+
+}(jQuery));

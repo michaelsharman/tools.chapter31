@@ -1,6 +1,6 @@
 var TOOLS = TOOLS || {};
 
-TOOLS.uuid = (function($,TOOLS) {
+TOOLS.uuid = (function($) {
 	'use strict';
 
 	$(function() {
@@ -28,7 +28,7 @@ TOOLS.uuid = (function($,TOOLS) {
 				$textProcessed.html(data);
 				$('#frmUUID > .loader').hide();
 			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
+			.fail(function() {
 				// TODO: Implement decent error handling
 			});
 
@@ -37,4 +37,4 @@ TOOLS.uuid = (function($,TOOLS) {
 
 	});
 
-}(jQuery,TOOLS));
+}(jQuery));

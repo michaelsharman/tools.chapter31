@@ -23,7 +23,7 @@ TOOLS.entitize = (function($) {
 				$('#entitize-content').val(data);
 				TOOLS.main.ajaxDone();
 			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
+			.fail(function() {
 				// TODO: Implement decent error handling
 			});
 		});

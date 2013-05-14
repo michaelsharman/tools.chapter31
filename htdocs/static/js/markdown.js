@@ -31,7 +31,7 @@ TOOLS.markdown = (function($) {
 					$('html,body').animate({scrollTop: $results.offset().top});
 				}
 			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
+			.fail(function() {
 				// TODO: Implement decent error handling
 			});
 		});

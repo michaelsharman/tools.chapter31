@@ -1,6 +1,6 @@
 var TOOLS = TOOLS || {};
 
-TOOLS.stopwatch = (function(window,document,$,TOOLS,Modernizr) {
+TOOLS.stopwatch = (function(window,document,$,Modernizr) {
 	'use strict';
 
 	var action = 'stop',
@@ -85,4 +85,4 @@ TOOLS.stopwatch = (function(window,document,$,TOOLS,Modernizr) {
 		}
 	});
 
-}(window,document,jQuery,TOOLS,Modernizr));
+}(window,document,jQuery,Modernizr));

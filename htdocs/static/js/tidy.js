@@ -7,8 +7,7 @@ TOOLS.tidy = (function($) {
 
 		$('#frmTidy').on('submit', function(ev) {
 			ev.preventDefault();
-			var content = $('#tidy-content').val(),
-				$textProcessed = $('code.text-processed'),
+			var $textProcessed = $('code.text-processed'),
 				$results = $('div.results');
 			$textProcessed.html('');
 			$.ajax({
@@ -30,7 +29,7 @@ TOOLS.tidy = (function($) {
 				}
 				TOOLS.main.ajaxDone();
 			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
+			.fail(function() {
 				// TODO: Implement decent error handling
 			});
 		});

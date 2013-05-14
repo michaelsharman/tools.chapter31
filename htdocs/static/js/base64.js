@@ -26,7 +26,7 @@ TOOLS.base64 = (function($) {
 				$results.show();
 				$('#frmBase64 > .loader').hide();
 			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
+			.fail(function() {
 				// TODO: Implement decent error handling
 			});
 		});

@@ -1,6 +1,6 @@
 var TOOLS = TOOLS || {};
 
-TOOLS.string = (function($) {
+TOOLS.string = (function() {
 	'use strict';
 
 	function getNumCharacters(str, ignorehtml) {
@@ -59,4 +59,4 @@ TOOLS.string = (function($) {
 		substr: substr
 	};
 
-}(jQuery));
+}());

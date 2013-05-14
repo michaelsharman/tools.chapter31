@@ -1,6 +1,6 @@
 var TOOLS = TOOLS || {};
 
-TOOLS.weather = (function($,TOOLS,navigator) {
+TOOLS.weather = (function($) {
 	'use strict';
 
 	var apiKey = 'ba88605103040608122410',
@@ -46,7 +46,7 @@ TOOLS.weather = (function($,TOOLS,navigator) {
 			$('#frmWeather > .loader').hide();
 			render(data);
 		})
-		.fail(function(jqXHR, textStatus, errorThrown) {
+		.fail(function() {
 			// TODO: Implement decent error handling
 		});
 	}
@@ -54,16 +54,8 @@ TOOLS.weather = (function($,TOOLS,navigator) {
 	function render(data) {
 		var weather = data.data,
 			nearestArea = weather.nearest_area[0].areaName[0].value,
-			d_now = new Date(weather.current_condition[0].localObsDateTime.replace('-', ',')),
-			d_today = new Date(weather.weather[0].date.replace('-', ',')),
 			d_tomorrow = new Date(weather.weather[1].date.replace('-', ',')),
 			weatherTomorrow = weather.weather[1];
-			/*nearestArea = weather.nearest_area[0].areaName[0].value,
-			today = new Date(weather.current_condition[0].localObsDateTime.replace('-', ',')),
-			future1 = new Date(weather.weather[0].date.replace('-', ',')),
-			future2 = new Date(weather.weather[1].date.replace('-', ',')),
-			weatherTomorrow = (future1.getDate() === future2.getDate()) ? weather.weather[0] : weather.weather[1],
-			tomorrow = new Date(weatherTomorrow.date.replace('-', ','));*/
 
 		$('#city').html(getLocation().city);
 		$('#region').html('(' + nearestArea + ')');
@@ -86,4 +78,4 @@ TOOLS.weather = (function($,TOOLS,navigator) {
 
 	});
 
-}(jQuery,TOOLS,navigator));
+}(jQuery));

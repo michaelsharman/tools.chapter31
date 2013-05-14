@@ -1,6 +1,6 @@
 var TOOLS = TOOLS || {};
 
-TOOLS.factorial = (function($,TOOLS) {
+TOOLS.factorial = (function($) {
 	'use strict';
 
 	var f = [];
@@ -79,4 +79,4 @@ TOOLS.factorial = (function($,TOOLS) {
 
 	});
 
-}(jQuery,TOOLS));
+}(jQuery));
