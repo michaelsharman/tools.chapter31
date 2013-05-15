@@ -1,5 +1,5 @@
 // suite
-describe('Percent specs', function() {
+describe('Percent method specs', function() {
 
 	var obj;
 
@@ -49,6 +49,50 @@ describe('Percent specs', function() {
 	// specs for calculate3()
 	it('n1 is x% of n2', function() {
 		expect(obj.calculate3(10, 10)).toEqual(100);
+	});
+
+});
+
+// suite for DOM events
+describe('Percent DOM/Event specs', function() {
+
+	var obj;
+
+	beforeEach(function() {
+		obj = TOOLS.percent;
+		loadFixtures('percent.html');
+	});
+
+	afterEach(function() {
+		obj = null;
+	});
+
+	it('checks that fixture(s) have loaded', function() {
+		expect($('#num1')).toExist();
+		expect($('#num2')).toExist();
+		expect($('#result1')).toExist();
+		var fixture = readFixtures('percent.html');
+		expect(fixture).toContain('output');
+	});
+
+	it('checks change event for num1 and num2', function() {
+		var spyNum1 = spyOnEvent('#num1', 'change'),
+			spyNum2 = spyOnEvent('#num2', 'change'),
+			num1 = 5,
+			num2 = 100,
+			result = '5',
+			output = obj.calculate1(num1, num2);
+
+		$('#num1,#num2').on('change', function() {
+			$('#result1').html(
+				obj.calculate1($('#num1').val(), $('#num2').val())
+			);
+		});
+		$('#num1').val(num1).trigger('change');
+		$('#num2').val(num2).trigger('change');
+		expect(spyNum1).toHaveBeenTriggered();
+		expect(spyNum2).toHaveBeenTriggered();
+		expect($('#result1').html()).toEqual(result);
 	});
 
 });
