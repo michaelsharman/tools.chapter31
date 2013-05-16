@@ -75,6 +75,7 @@ TOOLS.powerset = (function($) {
 					trim: ($('#op-trim').attr('checked')) ? true : false						// [true|false]
 				},
 				output,
+				result,
 				set;
 
 			// Convert to an array, which is what powerset() expects

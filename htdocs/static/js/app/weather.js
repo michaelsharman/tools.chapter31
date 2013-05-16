@@ -38,16 +38,10 @@ TOOLS.weather = (function($) {
 			dataType: 'jsonp',
 			jsonp: false,
 			cache: false,
-			global: false,
-			jsonpCallback: 'render',
-			ajaxSend: $('#frmWeather').append('<img src="/static/img/ajax-loader.gif" alt="loading..." class="loader" />')
+			jsonpCallback: 'render'
 		})
 		.done(function(data) {
-			$('#frmWeather > .loader').hide();
 			render(data);
-		})
-		.fail(function() {
-			// TODO: Implement decent error handling
 		});
 	}
 
