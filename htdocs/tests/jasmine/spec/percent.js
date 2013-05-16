@@ -83,15 +83,11 @@ describe('Percent DOM/Event specs', function() {
 			result = '5',
 			output = obj.calculate1(num1, num2);
 
-		$('#num1,#num2').on('change', function() {
-			$('#result1').html(
-				obj.calculate1($('#num1').val(), $('#num2').val())
-			);
-		});
 		$('#num1').val(num1).trigger('change');
 		$('#num2').val(num2).trigger('change');
 		expect(spyNum1).toHaveBeenTriggered();
 		expect(spyNum2).toHaveBeenTriggered();
+		obj.setResult('result1', num1, num2);
 		expect($('#result1').html()).toEqual(result);
 	});
 
