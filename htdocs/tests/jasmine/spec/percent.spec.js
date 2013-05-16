@@ -1,5 +1,6 @@
 // suite
 describe('Percent method specs', function() {
+	'use strict';
 
 	var obj;
 
@@ -55,6 +56,7 @@ describe('Percent method specs', function() {
 
 // suite for DOM events
 describe('Percent DOM/Event specs', function() {
+	'use strict';
 
 	var obj;
 

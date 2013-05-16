@@ -6,7 +6,7 @@ TOOLS.charcount = (function($,TOOLS) {
 	function characterCount() {
 		var S = TOOLS.string,
 			content = $('#content').val(),
-			ignorehtml = $('#ignorehtml').attr('checked') === 'checked',
+			ignorehtml = $('#ignorehtml').prop('checked'),
 			lenLC = S.getNumCharacters(content, ignorehtml),
 			lenWC = S.getNumWords(content, ignorehtml),
 			processed,

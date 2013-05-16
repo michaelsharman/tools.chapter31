@@ -3,14 +3,13 @@ var TOOLS = TOOLS || {};
 TOOLS.uuid = (function($) {
 	'use strict';
 
-	function process() {
+	function createUUID(callback) {
 		var version = $('#frmUUID').find('input[name=version]:checked').val(),
 			textUpper = ($('#textUpper').is(':checked')) ? 1 : 0,
-			format = ($('#format').attr('checked') === undefined) ? '' : $('#format').val(),
-			$textProcessed = $('div.text-processed');
+			format = ($('#format').prop('checked')) ? $('#format').val() : '';
 
 		// Clear previous generated values
-		$textProcessed.empty();
+		$('div.text-processed').empty();
 
 		$.ajax({
 			url: '/api/uuid',
@@ -20,9 +19,12 @@ TOOLS.uuid = (function($) {
 			dataType: 'html'
 		})
 		.done(function(data) {
-			$textProcessed.html(data);
+			callback(data);
 		});
+	}
 
+	function output(content) {
+		$('div.text-processed').html(content);
 		$('div.results').show();
 	}
 
@@ -30,12 +32,14 @@ TOOLS.uuid = (function($) {
 
 		$('#frmUUID').on('submit', function(ev) {
 			ev.preventDefault();
+			createUUID(output);
 		});
 
 	});
 
 	return {
-		process: process
+		createUUID: createUUID,
+		output: output
 	};
 
 }(jQuery));

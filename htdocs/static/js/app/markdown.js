@@ -7,7 +7,7 @@ TOOLS.markdown = (function($) {
 		var content = $('#md-content').val(),
 			$textProcessed = $('div.text-processed'),
 			$results = $('div.results'),
-			isChecked = ($('#md-extra').attr('checked') === 'checked') ? 1 : 0;
+			isChecked = ($('#md-extra').prop('checked')) ? 1 : 0;
 		$textProcessed.html('');
 		$.ajax({
 			url: '/api/markdown',

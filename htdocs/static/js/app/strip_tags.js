@@ -1,10 +1,9 @@
 var TOOLS = TOOLS || {};
 
-TOOLS.entitize = (function($) {
+TOOLS.striptags = (function($) {
 	'use strict';
 
-	function stripTags(content) {
-		var output = 'd';
+	function stripTags(content, callback) {
 		$.ajax({
 			url: '/api/striptags',
 			cache: false,
@@ -13,22 +12,25 @@ TOOLS.entitize = (function($) {
 			dataType: 'html'
 		})
 		.done(function(data) {
-			output = data;
+			callback(data);
 		});
-		return output;
+	}
+
+	function output(content) {
+		$('#content').val(content);
 	}
 
 	$(function() {
 
 		$('#frmStripTags').on('submit', function(ev) {
 			ev.preventDefault();
-			var content = stripTags($('#content').val());
-			$('#content').val(content);
+			stripTags($('#content').val(), output);
 		});
 
 	});
 
 	return {
+		output: output,
 		stripTags: stripTags
 	};
 

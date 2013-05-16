@@ -6,7 +6,7 @@ TOOLS.entitize = (function($) {
 	function entitize() {
 		var content = $('#entitize-content').val(),
 			quotestyle = $('#op-quotestyle').val(),
-			replacetype = ($('#op-replacetype-all').attr('checked'))?$('#op-replacetype-all').val():$('#op-replacetype-special').val();
+			replacetype = ($('#op-replacetype-all').prop('checked'))?$('#op-replacetype-all').val():$('#op-replacetype-special').val();
 		$.ajax({
 			url: '/api/entitize',
 			cache: false,

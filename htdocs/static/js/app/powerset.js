@@ -70,9 +70,9 @@ TOOLS.powerset = (function($) {
 			var data = $('#set').val(),
 				options = {
 					format: $('input[name="op-format"]:checked').val(),					// [list|JSON]
-					newLineAfter: ($('#op-new-line-after').attr('checked')) ? true : false,	// [true|false]
+					newLineAfter: ($('#op-new-line-after').prop('checked')),				// [true|false]
 					encloseBy: $('input[name="op-enclosed"]:checked').val(),			// [braces|brackets|quotes|nothing]
-					trim: ($('#op-trim').attr('checked')) ? true : false						// [true|false]
+					trim: ($('#op-trim').prop('checked'))									// [true|false]
 				},
 				output,
 				result,

@@ -3,12 +3,10 @@ var TOOLS = TOOLS || {};
 TOOLS.base64 = (function($) {
 	'use strict';
 
-	function process() {
-		var content = $('#base64-content').val(),
-			action = ($('#op-action-encode').attr('checked'))?$('#op-action-encode').val():$('#op-action-decode').val(),
-			$textProcessed = $('code.text-processed'),
-			$results = $('div.results');
-
+	/**
+	* Encodes/decodes a string to/from base64
+	*/
+	function process(content, action, callback) {
 		$.ajax({
 			url: '/api/base64',
 			cache: false,
@@ -17,21 +15,28 @@ TOOLS.base64 = (function($) {
 			dataType: 'html'
 		})
 		.done(function(data) {
-			$textProcessed.html(data);
-			$results.show();
+			callback(data);
 		});
+	}
+
+	function output(content) {
+		$('code.text-processed').html(content);
+		$('div.results').show();
 	}
 
 	$(function() {
 
 		$('#frmBase64').on('submit', function(ev) {
 			ev.preventDefault();
-			process();
+			var content = $('#base64-content').val(),
+				action = ($('#op-action-encode').prop('checked'))?$('#op-action-encode').val():$('#op-action-decode').val();
+			process(content, action, output);
 		});
 
 	});
 
 	return {
+		output: output,
 		process: process
 	};
 
