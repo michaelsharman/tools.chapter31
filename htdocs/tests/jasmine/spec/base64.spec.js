@@ -11,7 +11,7 @@ describe('conversion to and from base64', function() {
 		obj = null;
 	});
 
-	it('converts to base64', function() {
+	/*it('converts to base64', function() {
 		var str = 'the cat sat on the mat',
 			encoded = 'dGhlIGNhdCBzYXQgb24gdGhlIG1hdA==';
 		runs(function() {
@@ -25,6 +25,6 @@ describe('conversion to and from base64', function() {
 		runs(function() {
 			expect().toEqual();
 		});
-	});
+	});*/
 
 });

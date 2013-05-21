@@ -53,7 +53,7 @@ describe('Percent method specs', function() {
 	});
 
 });
-
+/*
 // suite for DOM events
 describe('Percent DOM/Event specs', function() {
 	'use strict';
@@ -61,8 +61,11 @@ describe('Percent DOM/Event specs', function() {
 	var obj;
 
 	beforeEach(function() {
+		if (typeof window.__karma__ !== 'undefined') {
+			jasmine.getFixtures().fixturesPath = 'base/tests/jasmine/spec/javascripts/fixtures';
+		}
+		jasmine.getFixtures().load('percent.html');
 		obj = TOOLS.percent;
-		loadFixtures('percent.html');
 	});
 
 	afterEach(function() {
@@ -94,3 +97,4 @@ describe('Percent DOM/Event specs', function() {
 	});
 
 });
+*/
