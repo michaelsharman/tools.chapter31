@@ -73,6 +73,7 @@
 
 <?php if (APPMODE === 'development' && $config['simulateProduction']) { ?>
 <script src="<?php echo $config['paths']['assets']; ?>js/libs/jquery/jquery.min.js"></script>
+<script src="<?php echo $config['paths']['assets']; ?>js/app/helpers/math.js"></script>
 <script src="<?php echo $config['paths']['assets']; ?>js/app/_main.js"></script>
 <script src="<?php echo $config['paths']['assets']; ?>js/app/string.js"></script>
 <script src="<?php echo $config['paths']['assets']; ?>js/app/character_count.js"></script>

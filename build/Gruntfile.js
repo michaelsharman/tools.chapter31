@@ -12,6 +12,7 @@ module.exports = function(grunt) {
 			js: {
 				src: [
 					'../htdocs/static/js/libs/jquery/jquery.min.js',
+					'../htdocs/static/js/app/helpers/math.js',
 					'../htdocs/static/js/app/_main.js',
 					'../htdocs/static/js/app/base64.js',
 					'../htdocs/static/js/app/string.js',
