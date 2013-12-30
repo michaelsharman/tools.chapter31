@@ -24,6 +24,7 @@ module.exports = function(grunt) {
 					'../htdocs/static/js/app/percent.js',
 					'../htdocs/static/js/app/powerset.js',
 					'../htdocs/static/js/app/stopwatch.js',
+					'../htdocs/static/js/app/samplecontent.js',
 					'../htdocs/static/js/app/strip_tags.js',
 					'../htdocs/static/js/app/tidy.js',
 					'../htdocs/static/js/app/uuid.js',

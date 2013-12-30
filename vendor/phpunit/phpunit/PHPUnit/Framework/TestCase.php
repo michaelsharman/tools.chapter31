@@ -393,7 +393,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      */
     public function hasOutput()
     {
-        if (empty($this->output)) {
+        if (strlen($this->output) === 0) {
             return FALSE;
         }
 
@@ -741,6 +741,12 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
                 $composerAutoload = '\'\'';
             }
 
+            if (defined('__PHPUNIT_PHAR__')) {
+                $phar = var_export(__PHPUNIT_PHAR__, TRUE);
+            } else {
+                $phar = '\'\'';
+            }
+
             $data            = var_export(serialize($this->data), TRUE);
             $dependencyInput = var_export(serialize($this->dependencyInput), TRUE);
             $includePath     = var_export(get_include_path(), TRUE);
@@ -753,6 +759,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
             $template->setVar(
               array(
                 'composerAutoload'               => $composerAutoload,
+                'phar'                           => $phar,
                 'filename'                       => $class->getFileName(),
                 'className'                      => $class->getName(),
                 'methodName'                     => $this->name,

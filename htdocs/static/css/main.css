@@ -135,6 +135,10 @@ article {
 	border-bottom: 7px solid #5BB75B;
 }
 
+.top-bar .nav li.active a:hover {
+    border: none;
+}
+
 .side-bar .nav .active {
 	background-color: #f7f8f9;
 	border-right: 7px solid #5BB75B;

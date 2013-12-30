@@ -34,19 +34,19 @@
 		<header class="side-bar span3">
 			<nav>
 				<ul class="nav">
-					<li<?php if ($active === 'base64') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>base64">Base64</a></li>
-					<li<?php if ($active === 'entitize') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>entitize">Entitize</a></li>
-					<li<?php if ($active === 'factorial') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>factorial">Factorial</a></li>
-					<li<?php if ($active === 'keycode') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>keycode">Keycode</a></li>
-					<li<?php if ($active === 'tidy') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>tidy">(X)HTML Tidy</a></li>
-					<li<?php if ($active === 'lettercount') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>lettercount">Letter/Word count</a></li>
-					<li<?php if ($active === 'markdown') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>markdown">Markdown</a></li>
-					<li<?php if ($active === 'percent') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>percent">Percentages</a></li>
-					<li<?php if ($active === 'powerset') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>powerset">Powerset</a></li>
-					<li<?php if ($active === 'striptags') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>striptags">Strip Tags</a></li>
-					<li<?php if ($active === 'stopwatch') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>stopwatch">Stopwatch</a></li>
-					<li<?php if ($active === 'uuid') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>uuid">UUID Generator</a></li>
-					<li<?php if ($active === 'weather') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>weather">Weather</a></li>
+					<li<?php if ($response['active'] === 'base64') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>base64">Base64</a></li>
+					<li<?php if ($response['active'] === 'entitize') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>entitize">Entitize</a></li>
+					<li<?php if ($response['active'] === 'factorial') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>factorial">Factorial</a></li>
+					<li<?php if ($response['active'] === 'keycode') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>keycode">Keycode</a></li>
+					<li<?php if ($response['active'] === 'tidy') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>tidy">(X)HTML Tidy</a></li>
+					<li<?php if ($response['active'] === 'lettercount') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>lettercount">Letter/Word count</a></li>
+					<li<?php if ($response['active'] === 'markdown') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>markdown">Markdown</a></li>
+					<li<?php if ($response['active'] === 'percent') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>percent">Percentages</a></li>
+					<li<?php if ($response['active'] === 'powerset') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>powerset">Powerset</a></li>
+					<li<?php if ($response['active'] === 'striptags') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>striptags">Strip Tags</a></li>
+					<li<?php if ($response['active'] === 'stopwatch') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>stopwatch">Stopwatch</a></li>
+					<li<?php if ($response['active'] === 'uuid') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>uuid">UUID Generator</a></li>
+					<li<?php if ($response['active'] === 'weather') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>weather">Weather</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -56,12 +56,12 @@
 			<nav class="top-bar">
 				<ul class="nav">
 					<li><a href="http://chapter31.com/" target="_blank">Blog</a></li>
-					<li<?php if ($active === 'about') { ?> class="active"<?php } ?>><a href="<?php echo $config['paths']['www']; ?>about">About</a></li>
-					<li<?php if ($active === 'home') { ?> class="active"<?php } ?>><a href="/">Home</a></li>
+					<li<?php if ($response['active'] === 'about') { ?> class="active"<?php } ?>><a href="http://michaelsharman.com" target="_blank">About</a></li>
+					<li<?php if ($response['active'] === 'home') { ?> class="active"<?php } ?>><a href="/">Home</a></li>
 				</ul>
 			</nav>
 			<div class="row-fluid">
-				<?php echo $yield ?>
+				<?php include_once $config['paths']['views'] . '/' . $response['view']; ?>
 			</div>
 		</section>
 	</div>
@@ -85,6 +85,7 @@
 <script src="<?php echo $config['paths']['assets']; ?>js/app/factorial.js"></script>
 <script src="<?php echo $config['paths']['assets']; ?>js/app/percent.js"></script>
 <script src="<?php echo $config['paths']['assets']; ?>js/app/powerset.js"></script>
+<script src="<?php echo $config['paths']['assets']; ?>js/app/samplecontent.js"></script>
 <script src="<?php echo $config['paths']['assets']; ?>js/app/strip_tags.js"></script>
 <script src="<?php echo $config['paths']['assets']; ?>js/app/stopwatch.js"></script>
 <script src="<?php echo $config['paths']['assets']; ?>js/app/uuid.js"></script>

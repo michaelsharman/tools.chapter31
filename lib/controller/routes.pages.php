@@ -1,66 +1,90 @@
 <?php
 
-//GET routes
-$app->get('/', function() use ($app, $config) {
-	$app->render('home.php', array('active' => 'home', 'config' => $config));
-});
+$routes = array_merge_recursive($routes, [
+    'get' => [
+        '/' => [
+            'view'   => 'home.php',
+            'active' => 'home'
+        ],
 
-$app->get('/about', function() use ($app, $config) {
-	$app->render('about.php', array('active' => 'about', 'config' => $config));
-});
+        '/about' => [
+            'view'   => 'about.php',
+            'active' => 'about'
+        ],
 
-$app->get('/base64', function() use ($app, $config) {
-	$app->render('base64.php', array('active' => 'base64', 'config' => $config));
-});
+        '/base64' => [
+            'view'   => 'base64.php',
+            'active' => 'base64'
+        ],
 
-$app->get('/browser', function() use ($app, $config) {
-	$app->render('browser.php', array('active' => 'browser', 'config' => $config));
-});
+        '/browser' => [
+            'view'   => 'browser.php',
+            'active' => 'browser'
+        ],
 
-$app->get('/entitize', function() use ($app, $config) {
-	$app->render('entitize.php', array('active' => 'entitize', 'config' => $config));
-});
+        '/entitize' => [
+            'view'   => 'entitize.php',
+            'active' => 'entitize'
+        ],
 
-$app->get('/factorial', function() use ($app, $config) {
-	$app->render('factorial.php', array('active' => 'factorial', 'config' => $config));
-});
+        '/factorial' => [
+            'view'   => 'factorial.php',
+            'active' => 'factorial'
+        ],
 
-$app->get('/keycode', function() use ($app, $config) {
-	$app->render('keycode.php', array('active' => 'keycode', 'config' => $config));
-});
+        '/keycode' => [
+            'view'   => 'keycode.php',
+            'active' => 'keycode'
+        ],
 
-$app->get('/lettercount', function() use ($app, $config) {
-	$app->render('character_count.php', array('active' => 'lettercount', 'config' => $config));
-});
+        '/lettercount' => [
+            'view'   => 'character_count.php',
+            'active' => 'lettercount'
+        ],
 
-$app->get('/markdown', function() use ($app, $config) {
-	$app->render('markdown.php', array('active' => 'markdown', 'config' => $config));
-});
+        '/markdown' => [
+            'view'   => 'markdown.php',
+            'active' => 'markdown'
+        ],
 
-$app->get('/percent', function() use ($app, $config) {
-	$app->render('percent.php', array('active' => 'percent', 'config' => $config));
-});
+        '/percent' => [
+            'view'   => 'percent.php',
+            'active' => 'percent'
+        ],
 
-$app->get('/powerset', function() use ($app, $config) {
-	$app->render('powerset.php', array('active' => 'powerset', 'config' => $config));
-});
+        '/powerset' => [
+            'view'   => 'powerset.php',
+            'active' => 'powerset'
+        ],
 
-$app->get('/striptags', function() use ($app, $config) {
-	$app->render('strip_tags.php', array('active' => 'striptags', 'config' => $config));
-});
+        '/samplecontent' => [
+            'view'   => 'samplecontent.php',
+            'active' => 'samplecontent'
+        ],
 
-$app->get('/stopwatch', function() use ($app, $config) {
-	$app->render('stopwatch.php', array('active' => 'stopwatch', 'config' => $config));
-});
+        '/striptags' => [
+            'view'   => 'strip_tags.php',
+            'active' => 'striptags'
+        ],
 
-$app->get('/tidy', function() use ($app, $config) {
-	$app->render('tidy.php', array('active' => 'tidy', 'config' => $config));
-});
+        '/stopwatch' => [
+            'view'   => 'stopwatch.php',
+            'active' => 'stopwatch'
+        ],
 
-$app->get('/uuid', function() use ($app, $config) {
-	$app->render('uuid.php', array('active' => 'uuid', 'config' => $config));
-});
+        '/tidy' => [
+            'view'   => 'tidy.php',
+            'active' => 'tidy'
+        ],
 
-$app->get('/weather', function() use ($app, $config) {
-	$app->render('weather.php', array('active' => 'weather', 'config' => $config));
-});
+        '/uuid' => [
+            'view'   => 'uuid.php',
+            'active' => 'uuid'
+        ],
+
+        '/weather' => [
+            'view'   => 'weather.php',
+            'active' => 'weather'
+        ]
+    ]
+]);
